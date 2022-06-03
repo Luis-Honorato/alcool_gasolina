@@ -22,8 +22,15 @@ class _CalcState extends State<Calc> {
           style: TextStyle(
             color: Colors.white
           ),
+        textAlign: TextAlign.center,
         ),
         backgroundColor: Colors.orange,
+        elevation: 4.0,
+
+        leading: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.menu),
+          ),
       ),
       
       body: Center(
@@ -104,7 +111,11 @@ class _CalcState extends State<Calc> {
           RaisedButton(
            onPressed: () {},
            child: Text(
-             "Calcular"
+             "Calcular",
+             style: TextStyle(
+               fontSize: 20,
+               fontWeight: FontWeight.bold
+             ),
             )
           ) 
         ],
