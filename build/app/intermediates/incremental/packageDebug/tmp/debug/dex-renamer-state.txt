@@ -1,4 +1,4 @@
-#Thu Jun 02 19:23:38 AMT 2022
+#Thu Jun 02 23:11:41 AMT 2022
 base.0=C\:\\Users\\polit\\Documents\\Visual_Studio\\flutter\\curso_udemy\\alcool_gasolina\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
