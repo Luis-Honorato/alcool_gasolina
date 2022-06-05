@@ -11,9 +11,14 @@ class Calc extends StatefulWidget {
 }
 
 class _CalcState extends State<Calc> {
+
+  TextEditingController _controllerAlcool = TextEditingController();
+  TextEditingController _controllerGasolina = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       backgroundColor: Color(0xff4F4F4F),
 
       appBar: AppBar(
@@ -34,7 +39,8 @@ class _CalcState extends State<Calc> {
       ),
       
       body: Center(
-        child: Column(
+        child: SingleChildScrollView(
+          child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         
@@ -78,6 +84,7 @@ class _CalcState extends State<Calc> {
                       borderSide: BorderSide(color: Colors.white)
                       )
                    ),
+                   controller: _controllerAlcool,
                   ),
                 ),
 
@@ -100,6 +107,7 @@ class _CalcState extends State<Calc> {
                       style: TextStyle(
                       color: Colors.white
                     ),
+                    controller: _controllerGasolina,
                   ),
                 )
               ],
@@ -117,9 +125,21 @@ class _CalcState extends State<Calc> {
                fontWeight: FontWeight.bold
              ),
             )
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 16),
+            child: Text(
+              "Resultado",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+              textAlign: TextAlign.justify,
+            ),
           ) 
         ],
        ),
+       )
       )
     );
   }
