@@ -14,7 +14,29 @@ class _CalcState extends State<Calc> {
 
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
+  String _textoResultado = "";
 
+  void _calcular(){
+    double? valorAlcool = double.tryParse(_controllerAlcool.text);
+    double? valorGasolina = double.tryParse(_controllerGasolina.text);
+
+    if(valorAlcool == null || valorGasolina == null){
+      setState(() {
+        _textoResultado = "Número Inválido! Digite um número maior que 0 e utilize '.' no lugar da ','";
+      });
+    } else {
+      if((valorAlcool / valorGasolina) >= 0.7){
+        setState(() {
+          _textoResultado = "Melhor abastecer com Gasolina!";
+        });}
+      else{
+        setState(() {
+          _textoResultado = "Melhor Abastecer com Alcool";
+        });
+      }
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +104,9 @@ class _CalcState extends State<Calc> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white)
-                      )
+                      ),
                    ),
+                   style: TextStyle(color: Colors.white),
                    controller: _controllerAlcool,
                   ),
                 ),
@@ -117,7 +140,7 @@ class _CalcState extends State<Calc> {
           Padding(padding: EdgeInsets.all(16)),
 
           RaisedButton(
-           onPressed: () {},
+           onPressed: _calcular,
            child: Text(
              "Calcular",
              style: TextStyle(
@@ -127,14 +150,13 @@ class _CalcState extends State<Calc> {
             )
           ),
           Padding(
-            padding: EdgeInsets.only(top: 16),
+            padding: EdgeInsets.only(top: 16, left: 10, right: 10),
             child: Text(
-              "Resultado",
+              _textoResultado,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
               ),
-              textAlign: TextAlign.justify,
             ),
           ) 
         ],
